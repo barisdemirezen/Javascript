@@ -1,44 +1,84 @@
-body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  background-color: slategrey;
+body,html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
   text-align: center;
   margin: auto;
 }
 
-#heading {
-  filter: blur(30);
+.items {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
 }
+
+#heading {
+  font-size: 6vw;
+  color: orange;
+  margin: 1vw 0 0 0;
+  text-shadow: 0px 3px 1px black;
+}
+
+#color-code {
+  font-size: 5vw;
+  margin: 2vw 0 4vw 0;
+}
+
 .start-button {
-  background-color: white;
-  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  font-size: 2vw;
+  margin-top: 5vw;
+  padding: 20px 50px;
   border-radius: 10px;
-  box-shadow: 0px 2px 3px 2px rgb(48, 47, 47);
-  transition: 1s ease-in-out;
+  border: none;
+  transition: .2s ease-in-out;
+  cursor: pointer;
 }
 
 .start-button:hover {
-  box-shadow: 0px 3px 3px 3px rgb(48, 47, 47);
+  box-shadow: 0px 3px 5px 0px rgb(48, 47, 47);
 }
 
 .container {
+  margin: auto;
+  width: 80vw;
   display: grid;
   grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: auto auto;
+  }
+  #heading {
+    font-size: 8vw;
+  }
+  #color-code {
+    font-size: 7vw;
+  }
+  .box {
+    height: 20vw !important;
+  }
+  .start-button {
+    font-size: 5vw;
+  }
 }
 
 .box {
   margin: auto;
   margin-bottom: 10px;
   background-color: white;
-  height: 100px;
-  width: 100px;
+  height: 10vw;
+  width: 100%;
   border: 1px solid black;
-  box-shadow: 0px 1px 2px 1px black;
+  box-shadow: 0px 3px 2px 0px black;
   border-radius: 10px;
   transition: 0.2s linear;
 }
 
 .box:hover {
-  box-shadow: 0px 2px 3px 2px black;
-  transform: scale(1.2);
+  box-shadow: 0px 7px 2px 0px black;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 const box = document.querySelectorAll(".box");
 const colourCode = document.querySelector("#color-code");
+const html = document.querySelector("html");
 const background = document.querySelector("body");
 let selectedIndex;
 handleClick();
@@ -14,13 +15,13 @@ function randomColourGenerator() {
   let blue = randomise();
   let green = randomise();
   let rgb = `${red},${blue},${green}`;
-
   return `rgb(${rgb})`;
 }
 
 function handleClick() {
   const boxLength = box.length;
-  background.style.backgroundColor = "slategrey";
+  background.style.backgroundColor = "white";
+  html.style.backgroundColor = "white";
   for (let i = 0; i < boxLength; i++) {
     box[i].style.visibility = "visible";
     box[i].style.backgroundColor = randomColourGenerator();
@@ -36,6 +37,7 @@ function randomIndexGenerator() {
 function checkIndex(index) {
   if (index === selectedIndex) {
     background.style.backgroundColor = colourCode.innerHTML;
+    html.style.backgroundColor = colourCode.innerHTML;
   } else {
     box[index].style.visibility = "hidden";
   }
