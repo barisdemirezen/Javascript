@@ -1,0 +1,136 @@
+body, html {
+  background-color: #f2f2f2;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.main{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  border-radius: 100%;
+  border:15px solid #f2f2f2;
+  background-color: #f2f2f2;
+  width: 15vw;
+  height: 15vw;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.05),
+  -10px -10px 10px 2px rgba(255,255,255,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s ease;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.col{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+#button {
+  width: 40%;
+}
+
+.left-col{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-row-gap: 15vh;
+}
+
+.box:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.05),
+  -10px -10px 10px 2px rgba(255,255,255,1),
+  10px 10px 10px 2px rgba(0,0,0,0.05) inset,
+  -10px -10px 10px 2px rgba(255,255,255,1) inset;
+}
+
+#button svg{
+  fill: gray;
+  transition: .2s ease;
+}
+
+.box:hover #button svg{
+  fill: #9eeb8d;
+}
+
+.activeBox {
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.05),
+  -10px -10px 10px 2px rgba(255,255,255,1),
+  10px 10px 10px 2px rgba(0,0,0,0.05) inset,
+  -10px -10px 10px 2px rgba(255,255,255,1) inset !important;
+}
+
+.activeLight {
+  fill: #9eeb8d !important;
+}
+
+#switch {
+  border-radius: 500px;
+  border:15px solid #f2f2f2;
+  background-color: #f2f2f2;
+  width: 30vw;
+  height: 15vw;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.05),
+  -10px -10px 10px 2px rgba(255,255,255,1),
+  10px 10px 10px 2px rgba(0,0,0,0.05) inset,
+  -10px -10px 10px 2px rgba(255,255,255,1) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .2s ease;
+}
+
+#switch:hover {
+  cursor: pointer;
+}
+
+#switcher {
+  height: 12vw;
+  border-radius: 100%;
+  width: 12vw;
+  position: relative;
+  left: -27%;
+  background-color: #f2f2f2;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.05),
+  -10px -10px 10px 2px rgba(255,255,255,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease;
+}
+
+#switchicon {
+  width: 50%;
+}
+
+#switchicon svg {
+  fill: gray;
+}
+
+.activeSwitch {
+   fill: #9eeb8d !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .box {
+    width: 15vw !important;
+    height: 15vw !important;
+  }
+}
