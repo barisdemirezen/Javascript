@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stopwatch</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<style type="text/css">
+	body, html{
+		background-color: orange;
+		font-family: 'Rubik', sans-serif;
+		text-align: center;
+		margin: auto;
+	}
+	#title {
+		color: white;
+		font-size: 5rem;
+	}
+	.items {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		align-items: center;
+		justify-content: center;
+	}
+	.controllers {		
+		width: 85vw;
+		margin: auto;
+		margin-top: 5vw;
+		display: grid;
+		grid-template-columns: auto auto auto;
+	}
+	.controllers div{
+		font-size: 2rem;
+		color: white;
+		border: 2px solid white;
+		padding: 25px;
+		margin: 25px;
+		transition: .3s ease;
+	}
+	.controllers div:hover{
+		background-color: white;
+		color: orange;
+		cursor: pointer;
+	}
+	.time {
+		font-size: 10rem;
+		width: 100vw;
+		color: white;
+		align-items: center;
+		text-align: center;
+		display: inline-block;
+	}
+	.time span{
+		display: inline-block;
+		text-align: center;
+		width: 21vw;
+	}
+</style>
+
+<body>
+
+
+
+	<h1 id="title">Crusher Stopwatch</h1>
+
+<div class="items">
+	
+		<div class="time"><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>:<span id="miliseconds">00</span></div>
+	
+
+	<div class="controllers">
+		<div onclick="start()">START</div>
+		<div onclick="stop()">STOP</div>
+		<div onclick="reset()">RESET</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	let hours = document.querySelector("#hours");
+	let minutes = document.querySelector("#minutes");
+	let seconds = document.querySelector("#seconds");
+	let miliseconds = document.querySelector("#miliseconds");
+	let hour = 0;
+	let minute = 0;
+	let second = 0;
+	let milisecond = 0
+
+	let Interval;
+
+	function startTimer(){
+
+
+		milisecond++;
+
+
+		if(milisecond <= 9)
+		{
+			miliseconds.innerHTML = "0" + milisecond;
+		}
+		else if(milisecond <= 99)
+		{
+			miliseconds.innerHTML = milisecond;
+		}
+		else
+		{
+			milisecond = 0;
+			second++;
+		}
+
+		if(second <= 9)
+		{
+			seconds.innerHTML = "0" + second;
+		}
+		else if(second < 60)
+		{
+			seconds.innerHTML = second;
+		}
+		else
+		{
+			second = 0;
+			minute++;
+		}
+
+		if(minute <= 9)
+		{
+			minutes.innerHTML = "0" + minute;
+		}
+		else if(minute < 60)
+		{
+			minutes.innerHTML = minute;
+		}
+		else
+		{
+			minute = 0;
+			hour++;
+		}
+
+		if(hour <= 9)
+		{
+			hours.innerHTML = "0" + hour;
+		}
+		else
+		{
+			hours.innerHTML = hour;
+		}
+		
+	}
+
+	function start() {
+		clearInterval(Interval);
+		Interval = setInterval(startTimer,10);
+	}
+
+	function stop() {
+		clearInterval(Interval);
+	}
+
+  	function reset() {
+	 	clearInterval(Interval);
+		hours.innerHTML = "00";
+		minutes.innerHTML = "00";
+		seconds.innerHTML = "00";
+		miliseconds.innerHTML = "00";
+		hour = 0;
+		minute = 0;
+		second = 0;
+		milisecond = 0;
+  	}
+
+
+</script>
+
+
+
+</body>
+
+
+</html>
