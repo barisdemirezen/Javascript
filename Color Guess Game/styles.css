@@ -51,9 +51,11 @@ body,html {
 @media screen and (max-width: 600px) {
   .container {
     grid-template-columns: auto auto;
+    width: 95vw;
   }
   #heading {
-    font-size: 8vw;
+    font-size: 10vw;
+    text-shadow: none;
   }
   #color-code {
     font-size: 7vw;
