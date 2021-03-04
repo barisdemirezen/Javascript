@@ -1,0 +1,127 @@
+
+@media screen and (max-width: 1100px) {
+  #clock {
+    transform: scale(1.5);
+  }
+  h1 {
+  	font-size: 8vw !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #clock {
+    transform: scale(2.5);
+  }
+  #point {
+  	width: .5vw !important;
+  	height: .5vw !important;
+  }
+  h1 {
+  	font-size: 9vw !important;
+  }
+}
+
+body, html {
+	background-color: #222831;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+h1 {
+	width: 100vw;
+	text-align: center;
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 5vw;
+	color: white;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#clock {
+	border-radius: 100%;
+	width: 30vw;
+	height: 30vw;
+	box-shadow: -10px -10px 20px rgba(255,255,255,0.05),
+	10px 10px 20px rgba(0,0,0,0.2);
+}
+
+
+#wrapper {
+	border-radius: 100%;
+	width: 30vw;
+	height: 30vw;
+	overflow: hidden;
+	position: relative;
+	box-shadow: -5px -5px 20px rgba(255,255,255,0.05) inset,
+	5px 5px 20px rgba(0,0,0,0.2) inset;
+}
+
+#point {
+	position: absolute;
+	width: 1vw;
+	height: 1vw;
+	margin: auto;
+	border: 3px solid #a3f7bf;
+	background-color: #a3f7bf;
+	border-radius: 100%;
+	z-index: 50;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#hours {
+	height: 8vw;
+	width: 1vw;
+	background-color: #73bfff;
+	position: absolute;
+	margin: auto;
+	top: -26%;
+	left: 0%;
+	bottom: 0%;
+	right: 0%;
+	border-radius: 100px 100px 0px 0px;
+	transform-origin: bottom;
+	transform: rotate(0deg);
+	transition: 1s forwards;
+}
+
+#minutes {
+	height: 13vw;
+	width: 0.7vw;
+	background-color: #d659bb;
+	position: absolute;
+	margin: auto;
+	top: -44%;
+	left: 0%;
+	bottom: 0%;
+	right: 0%;
+	border-radius: 100px 100px 0px 0px;
+	transform-origin: bottom;
+	transform: rotate(0deg);
+	transition: .2s linear;
+}
+
+#seconds {
+	height: 13vw;
+	width: 0.5vw;
+	background-color: white;
+	z-index: 40;
+	position: absolute;
+	margin: auto;
+	top: -44%;
+	left: 0%;
+	bottom: 0%;
+	right: 0%;
+	border-radius: 100px;
+	transform: rotate(0deg);
+	transform-origin: bottom;
+}
