@@ -1,0 +1,26 @@
+body, html{
+    background-color: #cacaca;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+}
+.outer-container {
+    width: 80vw;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    transition: .2s ease;
+    scroll-behavior: smooth;
+}
+.inner-container {
+    display: flex;
+    padding: 1vw;
+    transition: 2s ease;
+}
+.box{
+    width: 10vw;
+    margin: 0 50px;
+    background-color: rgb(14, 13, 92);
+    height: 15vh;
+}
