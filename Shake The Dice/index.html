@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Lobster&display=swap" rel="stylesheet">
+    <title>Shake The Dice</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lobster', cursive;
+        }
+        .main{
+            width: 100vw;
+            height: 100vh;
+            background-color: #021416; 
+        }
+        .showcase {
+            transform: scale(0.5);
+            display: flex;
+            gap: 8vw;
+        }
+        .brand-container{
+            display: grid;
+            place-items: center;
+        }
+        .brand {
+            font-size: 5vw;
+            color: #d27676;
+        }
+        .brand-leading {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1vw;
+            color: #ffcccc;
+        }
+        .dice {
+            width: 10vw;
+            height: 10vw;
+            background-color: white;
+            border-radius: 15px;
+            position: relative;
+        }
+        .dice-grid {
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            place-items: center;
+        }
+        .dice-center-dot {
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+        .dot {
+            width: 1.5vw;
+            height: 1.5vw;
+            border-radius: 100px;
+            background-color: black;
+        }
+        #main-dice-container {
+            border-radius: 15px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #main-dice {
+            border-radius: inherit;
+            animation: shaking 1s linear alternate infinite;
+            transition: 0.2s ease;
+        }
+        @keyframes shaking{
+            from{
+                transform: rotate(-30deg);
+            }
+            to{
+                transform: rotate(30deg);
+            }
+        }
+        #main-dice:hover {
+            animation-play-state: paused;
+        }
+        .no-select {
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+        <div class="showcase">
+            <div class="dice">
+                <div class="dice-grid">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <div class="dice">
+                    <div class="dot dice-center-dot"></div>
+                    <div class="dice-grid">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <div class="dice">
+                <div class="dice-grid">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <div class="dice">
+                    <div class="dot dice-center-dot"></div>
+                <div class="dice-grid">
+                    <div class="dot"></div>
+                    <div></div>
+                    <div></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            
+            <div class="dice">
+                <div class="dice-grid">
+                    <div class="dot"></div>
+                    <div></div>
+                    <div></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <div class="dice">
+                <div class="dice-grid">
+                    <div class="dot dice-center-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-container">
+            <h1 class="brand no-select">Shake The Dice</h1>
+            <h2 class="brand-leading no-select">Yeah actually, hold the dice and shake it</h2>
+        </div>
+        
+        <div id="main-dice-container">
+            <div id="main-dice">
+                <div class="dice">
+                    <div class="dice-grid">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
