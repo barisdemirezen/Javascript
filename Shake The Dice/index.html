@@ -32,6 +32,7 @@
         .brand {
             font-size: 5vw;
             color: #d27676;
+            padding: .2vw;
         }
         .brand-leading {
             font-family: 'Kanit', sans-serif;
@@ -62,7 +63,7 @@
         .dot {
             width: 1.5vw;
             height: 1.5vw;
-            border-radius: 100px;
+            border-radius: 100%;
             background-color: black;
         }
         #main-dice-container {
@@ -78,6 +79,26 @@
             animation: shaking 2s linear infinite;
             box-shadow: 10px 10px 30px 4px rgba(0,0,0,1),
               -10px -10px 30px 4px rgba(255, 255, 255, .1);
+        }
+        #roll-dice {
+            font-family: 'Kanit', sans-serif;
+            font-size: 3vw;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -80%);
+            background-color: #d27676;
+            padding: 0 2vw;
+            border-radius: 1vw;
+            display: grid;
+            place-items: center;
+            transition: .1s ease;
+        }
+        #roll-dice:hover {
+            cursor: pointer;
+            box-shadow: 10px 10px 30px 4px rgba(0,0,0,01),
+              -10px -10px 30px 4px rgba(255, 255, 255, .01);
         }
         @keyframes shaking{
             0%{
@@ -108,10 +129,88 @@
         .no-select {
             user-select: none;
         }
+
+        @media all and (max-width: 800px) {
+
+        .showcase {
+            margin-top: 3vh;
+            transform: scale(.8);
+        }
+        .brand {
+            margin-top: 4vh;
+            font-size: 8vw;
+        }
+        #main-dice .dice {
+            width: 20vw;
+            height: 20vw;
+            border-radius: 2vw;
+        }
+        #main-dice .dot{
+            width: 3vw;
+            height: 3vw;
+        }
+        .brand-leading {
+            font-size: 4vw;
+        }
+        #rolled {
+            top: 50%;
+            font-size: 60vw;
+        }
+        #roll-dice {
+            font-size: 5vw;
+            padding: 0 5vw;
+            border-radius: 2vw;
+        }
+}
+
+        @media all and (max-width: 480px) {
+
+            .showcase {
+                margin-top: 10vh;
+                transform: scale(.9);
+            }
+            .brand {
+                margin-top: 5vh;
+                font-size: 13vw;
+            }
+            #main-dice .dice {
+                width: 30vw;
+                height: 30vw;
+                border-radius: 3vw;
+            }
+            #main-dice .dot{
+                width: 4vw;
+                height: 4vw;
+            }
+            .brand-leading {
+                font-size: 5vw;
+            }
+            #rolled {
+                position: absolute;
+                left:50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 100vw;
+                color: rgba(255,255,255,0.02)
+            }
+            #roll-dice {
+            font-size: 10vw;
+            padding: 0 5vw;
+            border-radius: 2vw;
+            }
+
+        }
+
+
+
     </style>
 </head>
 <body>
     <div class="main">
+
+        <div id="roll-dice" class="no-select">
+            Roll
+        </div>
 
         <div id="rolled" class="no-select">
             
@@ -194,7 +293,9 @@
             </div>
         </div>
 
-    
+
+
+
     </div>
     <script>
         let main = document.querySelector("body");
@@ -203,6 +304,12 @@
         let rolled = document.querySelector("#rolled");
         let hover = false;
 
+        let button = document.querySelector("#roll-dice");
+        
+        button.addEventListener("click",function(){
+            changeDice();
+        });
+
         dice.addEventListener("mousedown",function(){ 
             dice.style.animation = "nope";
             event.preventDefault();           
@@ -210,6 +317,12 @@
         });
 
         dice.addEventListener("mouseup",function(){
+            changeDice();
+            event.preventDefault();            
+            hover = !hover;
+        });
+
+        function changeDice(){
             let rand = Math.floor(Math.random() * 6 + 1);
             let newDice = document.querySelector(`#dice_${rand}`).cloneNode(true);
             let innerDice = document.querySelector("#main-dice").children[0];
@@ -217,9 +330,7 @@
             innerDice.remove();
             dice.appendChild(newDice);
             rolled.innerHTML = rand;
-            event.preventDefault();            
-            hover = !hover;
-        });
+        }
 
         main.addEventListener("mousemove", function(){
             if(hover){
