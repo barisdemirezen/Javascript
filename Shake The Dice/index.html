@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Lobster', cursive;
+            overflow: hidden;
         }
         .main{
             width: 100vw;
@@ -41,7 +42,7 @@
             width: 10vw;
             height: 10vw;
             background-color: white;
-            border-radius: 15px;
+            border-radius: 1vw;
             position: relative;
         }
         .dice-grid {
@@ -65,7 +66,8 @@
             background-color: black;
         }
         #main-dice-container {
-            border-radius: 15px;
+            overflow: visible;
+            border-radius: 1vw;
             position: absolute;
             left: 50%;
             top: 50%;
@@ -73,19 +75,35 @@
         }
         #main-dice {
             border-radius: inherit;
-            animation: shaking 1s linear alternate infinite;
-            transition: 0.2s ease;
+            animation: shaking 2s linear infinite;
+            box-shadow: 10px 10px 30px 4px rgba(0,0,0,1),
+              -10px -10px 30px 4px rgba(255, 255, 255, .1);
         }
         @keyframes shaking{
-            from{
+            0%{
+                transform: rotate(0deg);
+            }
+            25%{
                 transform: rotate(-30deg);
             }
-            to{
+            50%{
+                transform: rotate(0deg);
+            }
+            75%{
                 transform: rotate(30deg);
             }
+            100%{
+                transform: rotate(0deg);
+            }
+
         }
-        #main-dice:hover {
-            animation-play-state: paused;
+        #rolled {
+            position: absolute;
+            left:50%;
+            top: 55%;
+            transform: translate(-50%, -50%);
+            font-size: 30vw;
+            color: rgba(255,255,255,0.02)
         }
         .no-select {
             user-select: none;
@@ -95,8 +113,12 @@
 <body>
     <div class="main">
 
+        <div id="rolled" class="no-select">
+            
+        </div>
+
         <div class="showcase">
-            <div class="dice">
+            <div class="dice" id="dice_6">
                 <div class="dice-grid">
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -107,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="dice">
+            <div class="dice" id="dice_5">
                     <div class="dot dice-center-dot"></div>
                     <div class="dice-grid">
                     <div class="dot"></div>
@@ -117,7 +139,7 @@
                 </div>
             </div>
 
-            <div class="dice">
+            <div class="dice" id="dice_4">
                 <div class="dice-grid">
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -126,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="dice">
+            <div class="dice" id="dice_3">
                     <div class="dot dice-center-dot"></div>
                 <div class="dice-grid">
                     <div class="dot"></div>
@@ -136,7 +158,7 @@
                 </div>
             </div>
             
-            <div class="dice">
+            <div class="dice" id="dice_2">
                 <div class="dice-grid">
                     <div class="dot"></div>
                     <div></div>
@@ -145,7 +167,7 @@
                 </div>
             </div>
 
-            <div class="dice">
+            <div class="dice" id="dice_1">
                 <div class="dice-grid">
                     <div class="dot dice-center-dot"></div>
                 </div>
@@ -172,6 +194,42 @@
             </div>
         </div>
 
+    
     </div>
+    <script>
+        let main = document.querySelector("body");
+        let diceContainer = document.querySelector("#main-dice-container");
+        let dice = document.querySelector("#main-dice");
+        let rolled = document.querySelector("#rolled");
+        let hover = false;
+
+        dice.addEventListener("mousedown",function(){ 
+            dice.style.animation = "nope";
+            event.preventDefault();           
+            hover = !hover;
+        });
+
+        dice.addEventListener("mouseup",function(){
+            let rand = Math.floor(Math.random() * 6 + 1);
+            let newDice = document.querySelector(`#dice_${rand}`).cloneNode(true);
+            let innerDice = document.querySelector("#main-dice").children[0];
+            dice.style.animation= "shaking 2s linear infinite";
+            innerDice.remove();
+            dice.appendChild(newDice);
+            rolled.innerHTML = rand;
+            event.preventDefault();            
+            hover = !hover;
+        });
+
+        main.addEventListener("mousemove", function(){
+            if(hover){
+                diceContainer.style.left = `${event.clientX}px`;
+                diceContainer.style.top = `${event.clientY}px`;
+            }
+        });
+
+
+
+    </script>
 </body>
 </html>
