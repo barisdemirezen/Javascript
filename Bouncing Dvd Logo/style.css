@@ -1,0 +1,60 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+#box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: grid;
+    place-items: center;
+}
+
+#dvd {
+    color: #FFB319;
+    width: 100%;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 5em;
+    font-style: italic;
+    letter-spacing: -.1em;
+    line-height: .8;
+    text-align: center;
+}
+
+#disc-outer {
+    background-color: #FFB319;
+    width: 17vh;
+    height: 3vh;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+}
+
+#disc-inner {
+    background-color: black;
+    width: 30%;
+    height: 15%;
+    border-radius: 100%;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+#video-text {
+    width: 100%;
+    color: #FFB319;
+    text-align: center;
+    font-size: 2.5em;
+    letter-spacing: .2em;
+    font-family: sans-serif;
+    font-weight: bold;
+}
